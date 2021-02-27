@@ -80,8 +80,8 @@ source_profile = Admin
 - [x] CloudFront
 - [x] SQS
 - [x] ACM
-- [] VPC
-- [] WAF
+- [ ] VPC
+- [ ] WAF
 - [x] Billing (RightsizingRecommendations; Cost optimizing)
 - [ ] Billing (估計會從 RD Team 那邊獲取資料)
 
