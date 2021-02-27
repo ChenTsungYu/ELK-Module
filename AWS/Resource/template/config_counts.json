@@ -1,0 +1,45 @@
+PUT _index_template/aws_resource_config_counts_template
+{
+  "index_patterns": ["aws_resource_config_counts*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1
+    },
+    "mappings" : {
+      "properties" : {
+        "count" : {
+          "type" : "long"
+        },
+        "createdTime" : {
+          "type" : "date"
+        },
+        "region" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "resourceType" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        }
+      }
+    },
+    "aliases": {
+      "mydata": { }
+    }
+  },
+  "priority": 100,
+  "version": 1,
+  "_meta": {
+    "description": "custom aws config counts"
+  }
+}

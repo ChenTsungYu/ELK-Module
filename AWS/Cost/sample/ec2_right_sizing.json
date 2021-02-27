@@ -1,0 +1,48 @@
+{
+    "AccountId" : "xxxxxxxxx",
+    "CurrentInstance" : {
+      "ResourceId" : "i-xxxxxxxxx",
+      "InstanceName" : "xxxxxxxxx",
+      "Tags" : [
+        {
+          "Key" : "user:Name",
+          "Values" : [
+            "xxxxxxxxx"
+          ]
+        }
+      ],
+      "ResourceDetails" : {
+        "EC2ResourceDetails" : {
+          "HourlyOnDemandRate" : "0.0136000000",
+          "InstanceType" : "t3.micro",
+          "Platform" : "Linux/UNIX",
+          "Region" : "Asia Pacific (Tokyo)",
+          "Sku" : "xxxxxxxxx",
+          "Memory" : "1 GiB",
+          "NetworkPerformance" : "Up to 5 Gigabit",
+          "Storage" : "EBS only",
+          "Vcpu" : "2"
+        }
+      },
+      "ResourceUtilization" : {
+        "EC2ResourceUtilization" : {
+          "MaxCpuUtilizationPercentage" : "0.0",
+          "MaxMemoryUtilizationPercentage" : "",
+          "MaxStorageUtilizationPercentage" : ""
+        }
+      },
+      "ReservationCoveredHoursInLookbackPeriod" : "0.0",
+      "SavingsPlansCoveredHoursInLookbackPeriod" : "0.0",
+      "OnDemandHoursInLookbackPeriod" : "336.0",
+      "TotalRunningHoursInLookbackPeriod" : "336.0",
+      "MonthlyCost" : "9.9280000000",
+      "CurrencyCode" : "USD"
+    },
+    "RightsizingType" : "Terminate",
+    "TerminateRecommendationDetail" : {
+      "EstimatedMonthlySavings" : "9.9280000000",
+      "CurrencyCode" : "USD"
+    },
+    "@timestamp" : "2021-02-25T23:25:33Z",
+    "AccountName" : "xxxxxxxxx"
+  }

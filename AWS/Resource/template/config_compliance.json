@@ -1,0 +1,74 @@
+PUT _index_template/aws_resource_config_compliance_template
+{
+  "index_patterns": ["aws_resource_config_compliance*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1
+    },
+    "mappings" : {
+      "properties" : {
+        "Compliance" : {
+          "properties" : {
+            "ComplianceContributorCount" : {
+              "properties" : {
+                "CapExceeded" : {
+                  "type" : "boolean"
+                },
+                "CappedCount" : {
+                  "type" : "long"
+                }
+              }
+            },
+            "ComplianceType" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "ResourceId" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "ResourceType" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "createdTime" : {
+          "type" : "date"
+        },
+        "region" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        }
+      }
+    },
+    "aliases": {
+      "mydata": { }
+    }
+  },
+  "priority": 100,
+  "version": 1,
+  "_meta": {
+    "description": "custom aws config compliance"
+  }
+}

@@ -1,0 +1,388 @@
+PUT _index_template/aws_resource_rds_template
+{
+  "index_patterns": ["aws_resource_rds*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1
+    },
+     "mappings" : {
+      "properties" : {
+        "AllocatedStorage" : {
+          "type" : "long"
+        },
+        "AutoMinorVersionUpgrade" : {
+          "type" : "boolean"
+        },
+        "AvailabilityZone" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "BackupRetentionPeriod" : {
+          "type" : "long"
+        },
+        "CACertificateIdentifier" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "CopyTagsToSnapshot" : {
+          "type" : "boolean"
+        },
+        "DBInstanceArn" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "DBInstanceClass" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "DBInstanceIdentifier" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "DBInstanceStatus" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "DBName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "DBParameterGroups" : {
+          "properties" : {
+            "DBParameterGroupName" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "ParameterApplyStatus" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "DBSubnetGroup" : {
+          "properties" : {
+            "DBSubnetGroupDescription" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "DBSubnetGroupName" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "SubnetGroupStatus" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "Subnets" : {
+              "properties" : {
+                "SubnetAvailabilityZone" : {
+                  "properties" : {
+                    "Name" : {
+                      "type" : "text",
+                      "fields" : {
+                        "keyword" : {
+                          "type" : "keyword",
+                          "ignore_above" : 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "SubnetIdentifier" : {
+                  "type" : "text",
+                  "fields" : {
+                    "keyword" : {
+                      "type" : "keyword",
+                      "ignore_above" : 256
+                    }
+                  }
+                },
+                "SubnetOutpost" : {
+                  "type" : "object"
+                },
+                "SubnetStatus" : {
+                  "type" : "text",
+                  "fields" : {
+                    "keyword" : {
+                      "type" : "keyword",
+                      "ignore_above" : 256
+                    }
+                  }
+                }
+              }
+            },
+            "VpcId" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "DbInstancePort" : {
+          "type" : "long"
+        },
+        "DbiResourceId" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "DeletionProtection" : {
+          "type" : "boolean"
+        },
+        "Endpoint" : {
+          "properties" : {
+            "Address" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "HostedZoneId" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "Port" : {
+              "type" : "long"
+            }
+          }
+        },
+        "Engine" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "EngineVersion" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "IAMDatabaseAuthenticationEnabled" : {
+          "type" : "boolean"
+        },
+        "InstanceCreateTime" : {
+          "type" : "date"
+        },
+        "LatestRestorableTime" : {
+          "type" : "date"
+        },
+        "LicenseModel" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "MasterUsername" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "MonitoringInterval" : {
+          "type" : "long"
+        },
+        "MultiAZ" : {
+          "type" : "boolean"
+        },
+        "OptionGroupMemberships" : {
+          "properties" : {
+            "OptionGroupName" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "Status" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "PendingModifiedValues" : {
+          "type" : "object"
+        },
+        "PerformanceInsightsEnabled" : {
+          "type" : "boolean"
+        },
+        "PreferredBackupWindow" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "PreferredMaintenanceWindow" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "PubliclyAccessible" : {
+          "type" : "boolean"
+        },
+        "StorageEncrypted" : {
+          "type" : "boolean"
+        },
+        "StorageType" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "VpcSecurityGroups" : {
+          "properties" : {
+            "Status" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "VpcSecurityGroupId" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "regionName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "subnetsIDs" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        }
+      }
+    },
+    "aliases": {
+      "mydata": { }
+    }
+  },
+  "priority": 200,
+  "version": 1,
+  "_meta": {
+    "description": "custom aws rds resource"
+  }
+}

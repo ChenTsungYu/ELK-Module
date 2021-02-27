@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+beautifulsoup4 = "==4.6.0"
+bs4 = "==0.0.1"
+eland = "==7.10.0b1"
+elasticsearch = "==7.9.1"
+elasticsearch-dsl = "==7.1.0"
+google = "==3.0.0"
+google-api-core = "==1.23.0"
+google-api-python-client = "==1.12.4"
+google-auth = "==1.22.1"
+google-auth-httplib2 = "==0.0.4"
+google-cloud = "==0.34.0"
+google-cloud-bigquery = "==2.2.0"
+google-cloud-core = "==1.4.3"
+google-crc32c = "==1.0.0"
+google-resumable-media = "==1.1.0"
+googleapis-common-protos = "==1.52.0"
+pytz = "==2019.3"
+pyzmq = "==19.0.0"
+requests = "*"
+boto3 = "*"
+simplejson = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

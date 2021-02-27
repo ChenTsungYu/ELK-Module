@@ -1,0 +1,123 @@
+PUT _index_template/aws_resource_route53_template
+{
+  "index_patterns": ["aws_resource_route53*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1
+    },
+    "mappings" : {
+      "properties" : {
+        "AliasTarget" : {
+          "properties" : {
+            "DNSName" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            },
+            "EvaluateTargetHealth" : {
+              "type" : "boolean"
+            },
+            "HostedZoneId" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "DomainName" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "GeoLocation" : {
+          "properties" : {
+            "CountryCode" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "Name" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "ResourceRecords" : {
+          "properties" : {
+            "Value" : {
+              "type" : "text",
+              "fields" : {
+                "keyword" : {
+                  "type" : "keyword",
+                  "ignore_above" : 256
+                }
+              }
+            }
+          }
+        },
+        "SetIdentifier" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "TTL" : {
+          "type" : "long"
+        },
+        "Type" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "createdTime" : {
+          "type" : "date"
+        },
+        "records" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 51200
+            }
+          }
+        }
+      }
+    },
+    "aliases": {
+      "mydata": { }
+    }
+  },
+  "priority": 100,
+  "version": 1,
+  "_meta": {
+    "description": "custom aws resource route53"
+  }
+}

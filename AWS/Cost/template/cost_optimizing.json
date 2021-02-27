@@ -1,0 +1,211 @@
+PUT _index_template/aws-ec2-rightsizing-template
+{
+  "index_patterns": ["aws-ec2-rightsizing*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1
+    },
+    "mappings" : {
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
+        },
+        "AccountId" : {
+          "type" : "keyword"
+        },
+        "AccountName" : {
+          "type" : "keyword"
+        },
+        "CurrentInstance" : {
+          "properties" : {
+            "CurrencyCode" : {
+                "type" : "keyword"
+            },
+            "InstanceName" : {
+                "type" : "keyword"
+            },
+            "MonthlyCost" : {
+              "type" : "float"
+            },
+            "OnDemandHoursInLookbackPeriod" : {
+              "type" : "float"
+            },
+            "ReservationCoveredHoursInLookbackPeriod" : {
+              "type" : "float"
+            },
+            "ResourceDetails" : {
+              "properties" : {
+                "EC2ResourceDetails" : {
+                  "properties" : {
+                    "HourlyOnDemandRate" : {
+                      "type" : "float"
+                    },
+                    "InstanceType" : {
+                        "type" : "keyword"
+                    },
+                    "Memory" : {
+                        "type" : "keyword"
+                    },
+                    "NetworkPerformance" : {
+                        "type" : "keyword"
+                    },
+                    "Platform" : {
+                        "type" : "keyword"
+                    },
+                    "Region" : {
+                        "type" : "keyword"
+                    },
+                    "Sku" : {
+                        "type" : "keyword"
+                    },
+                    "Storage" : {
+                        "type" : "keyword"
+                    },
+                    "Vcpu" : {
+                        "type" : "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "ResourceId" : {
+                "type" : "keyword"
+            },
+            "ResourceUtilization" : {
+              "properties" : {
+                "EC2ResourceUtilization" : {
+                  "properties" : {
+                    "MaxCpuUtilizationPercentage" : {
+                      "type" : "float"
+                    },
+                    "MaxMemoryUtilizationPercentage" : {
+                      "type" : "float"
+                    },
+                    "MaxStorageUtilizationPercentage" : {
+                      "type" : "float"
+                    }
+                  }
+                }
+              }
+            },
+            "SavingsPlansCoveredHoursInLookbackPeriod" : {
+              "type" : "float"
+            },
+            "Tags" : {
+              "properties" : {
+                "Key" : {
+                  "type" : "keyword"
+                },
+                "Values" : {
+                  "type" : "keyword"
+                }
+              }
+            },
+            "TotalRunningHoursInLookbackPeriod" : {
+              "type" : "float"
+            }
+          }
+        },
+        "ModifyRecommendationDetail" : {
+          "properties" : {
+            "TargetInstances" : {
+              "properties" : {
+                "CurrencyCode" : {
+                  "type" : "keyword"
+                },
+                "DefaultTargetInstance" : {
+                  "type" : "boolean"
+                },
+                "EstimatedMonthlyCost" : {
+                  "type" : "float"
+                },
+                "EstimatedMonthlySavings" : {
+                  "type" : "float"
+                },
+                "ExpectedResourceUtilization" : {
+                  "properties" : {
+                    "EC2ResourceUtilization" : {
+                      "properties" : {
+                        "MaxCpuUtilizationPercentage" : {
+                          "type" : "float"
+                        },
+                        "MaxMemoryUtilizationPercentage" : {
+                          "type" : "float"
+                        },
+                        "MaxStorageUtilizationPercentage" : {
+                          "type" : "float"
+                        }
+                      }
+                    }
+                  }
+                },
+                "ResourceDetails" : {
+                  "properties" : {
+                    "EC2ResourceDetails" : {
+                      "properties" : {
+                        "HourlyOnDemandRate" : {
+                          "type" : "float"
+                        },
+                        "InstanceType" : {
+                          "type" : "keyword"
+                        },
+                        "Memory" : {
+                          "type" : "keyword"
+                        },
+                        "NetworkPerformance" : {
+                          "type" : "keyword"
+                        },
+                        "Platform" : {
+                          "type" : "keyword"
+                        },
+                        "Region" : {
+                          "type" : "keyword"
+                        },
+                        "Sku" : {
+                          "type" : "keyword"
+                        },
+                        "Storage" : {
+                          "type" : "keyword"
+                        },
+                        "Vcpu" : {
+                          "type" : "keyword"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "RightsizingType" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "TerminateRecommendationDetail" : {
+          "properties" : {
+            "CurrencyCode" : {
+                "type" : "keyword"
+            },
+            "EstimatedMonthlySavings" : {
+              "type" : "float"
+            }
+          }
+        }
+      }
+    },
+    "aliases": {
+      "mydata": { }
+    }
+  },
+  "priority": 100,
+  "version": 1,
+  "_meta": {
+    "description": "custom aws ec2 rightsizing"
+  }
+}
