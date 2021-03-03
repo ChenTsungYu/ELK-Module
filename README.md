@@ -83,7 +83,7 @@ source_profile = Admin
 - [ ] VPC
 - [ ] WAF
 - [x] Billing (RightsizingRecommendations; Cost optimizing)
-- [ ] Billing (估計會從 RD Team 那邊獲取資料)
+- [ ] Billing 
 
 ### AWS Performance
 - [x] EC2
